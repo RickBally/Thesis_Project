@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CookbookApp.Views.AddRecipePage"
+             xmlns:viewmodels="clr-namespace:CookbookApp.ViewModels"
+             xmlns:mvvm="clr-namespace:MvvmHelpers;assembly=MvvmHelpers"
+             xmlns:model="clr-namespace:CookbookApp.Models"
+             x:Name="NewRecipePage"
+             Shell.NavBarIsVisible="False"
+             x:DataType="viewmodels:AddRecipeViewModel">
+    <ContentPage.BindingContext>
+        <viewmodels:AddRecipeViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid BackgroundColor="AntiqueWhite"
+                  Padding="10"
+                  RowDefinitions="250, 50, 200, 250, 250, *, 50">
+
+                <Frame BorderColor="LightGray"
+                       HasShadow="True"
+                       Padding="2">
+                    <Image Source="{Binding RecipeImageSource}"
+                           Aspect="AspectFill"/>
+                        
+                </Frame>
+                
+                <Button Text="Kép Feltöltése"
+                        VerticalOptions="Center"
+                        BackgroundColor="#8E6E41"
+                        Command="{Binding UploadImgCommand}"
+                        Margin="40, 0, 40, 0"
+                        Grid.Row="1"/>
+                
+                <Frame BackgroundColor="WhiteSmoke"
+                       BorderColor="LightGray"
+                       Margin="25, 15, 25, 15"
+                       Grid.Row="2"
+                       HasShadow="True"
+                       Padding="0"
+                       CornerRadius="2">
+
+                    <StackLayout>
+                        <Entry Placeholder="Recept neve"
+                               Text="{Binding RecipeName, Mode=TwoWay}"
+                               Margin="10, 0, 10, 0"
+                               HorizontalTextAlignment="Center"
+                               Keyboard="Text"
+                               FontSize="20"/>
+
+                        <Entry Placeholder="Recept kategóriája"
+                               Text="{Binding RecipeCategory, Mode=TwoWay}"
+                               Margin="10, 0, 10, 0"
+                               HorizontalTextAlignment="Center"
+                               Keyboard="Text"
+                               FontSize="20"/>
+
+                        <StackLayout Margin="10, 0, 10, 0"
+                                     Orientation="Horizontal"
+                                     HorizontalOptions="Center">
+                            
+                            <Label Text="Elkésíztés ideje(perc):"
+                                   HorizontalTextAlignment="End"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="20"/>
+
+                            <Entry Text="{Binding CookTime, Mode=TwoWay}"
+                                   WidthRequest="50"
+                                   Keyboard="Numeric"
+                                   FontSize="20"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+
+                <Frame BackgroundColor="WhiteSmoke"
+                       BorderColor="LightGray"
+                       Margin="25, 15, 25, 15"
+                       Grid.Row="3"
+                       HasShadow="True"
+                       Padding="0"
+                       CornerRadius="2">
+
+                    <StackLayout>
+                        <Label Text="Hozzávalók"
+                               Margin="10"
+                               FontSize="20"/>
+                        
+                        <ListView SelectionMode="None"
+                                  SeparatorVisibility="None"
+                                  ItemsSource="{Binding RecipeIngs}"
+                                  HasUnevenRows="True">
+                        
+                            <ListView.ItemTemplate>
+                                <DataTemplate x:DataType="model:RecipeIngredient">
+                                    <ViewCell>
+                                        <Grid Padding="2">
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="&#9679;" FontSize="20"/>
+                                                <Label Text="{Binding Ammount}" FontSize="20"/>
+                                                <Label Text="{Binding Ingredient.Unit}" FontSize="20"/>
+                                                <Label Text="{Binding Ingredient.Name}" FontSize="20"/>
+                                            </StackLayout>
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                            <ListView.Footer>
+                                <Grid ColumnDefinitions="*, 150">
+                                    <ImageButton Source="button_add.png"
+                                                 HeightRequest="50"
+                                                 HorizontalOptions="Center"
+                                                 Command="{Binding AddIngredientCommand}"
+                                                 BackgroundColor="Transparent"/>
+
+                                    <ImageButton Source="button_del.png"
+                                                 HeightRequest="50"
+                                                 Grid.Column="1"
+                                                 HorizontalOptions="Center"
+                                                 Command="{Binding RemIngredientCommand}"
+                                                 BackgroundColor="Transparent"/>
+                                </Grid>
+                            </ListView.Footer>
+                        </ListView>
+                    </StackLayout>
+                </Frame>
+            
+                <Frame BackgroundColor="WhiteSmoke"
+                       BorderColor="LightGray"
+                       Margin="25, 15, 25, 15"
+                       Grid.Row="4"
+                       HasShadow="True"
+                       Padding="0"
+                       CornerRadius="2">
+
+                    <StackLayout>
+                        <Label Text="Recept Lépései"
+                               Margin="10"
+                               FontSize="20"/>
+
+                        <ListView SelectionMode="None"
+                                  SeparatorVisibility="None"
+                                  ItemsSource="{Binding RecipeSteps}"
+                                  HasUnevenRows="True">
+
+                            <ListView.ItemTemplate>
+                                <DataTemplate x:DataType="model:RecipeStep">
+                                    <ViewCell>
+                                        <Grid Padding="2">
+                                            <StackLayout Orientation="Horizontal"
+                                                         Spacing="0">
+                                                <Label Text="{Binding Step}" FontSize="20" Margin="10, 0, 0, 0"/>
+                                                <Label Text=". lépés " FontSize="20" MinimumWidthRequest="65"/>
+                                                <Label Text="{Binding Instruction}" FontSize="20"/>
+                                            </StackLayout>
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                            <ListView.Footer>
+                                <Grid ColumnDefinitions="*, 150">
+                                    <ImageButton Source="button_add.png"
+                                                 HeightRequest="50"
+                                                 HorizontalOptions="Center"
+                                                 Command="{Binding AddStepCommand}"
+                                                 BackgroundColor="Transparent"/>
+                                
+                                    <ImageButton Source="button_del.png"
+                                                 HeightRequest="50"
+                                                 Grid.Column="1"
+                                                 HorizontalOptions="Center"
+                                                 Command="{Binding RemStepCommand}"
+                                                 BackgroundColor="Transparent"/>
+                                </Grid>
+                            </ListView.Footer>
+                        </ListView>
+                    </StackLayout>
+                </Frame>
+
+                <Button Text="{Binding ButtonText}"
+                        BackgroundColor="#8E6E41"
+                        Command="{Binding AddRecipeCommand}"
+                        Grid.Row="6"/>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

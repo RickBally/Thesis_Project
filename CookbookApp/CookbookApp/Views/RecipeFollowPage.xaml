@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:CookbookApp.ViewModels"
+             xmlns:mvvm="clr-namespace:MvvmHelpers;assembly=MvvmHelpers"
+             xmlns:model="clr-namespace:CookbookApp.Models"
+             x:Class="CookbookApp.Views.RecipeFollowPage"
+             Title="{Binding Title}"
+             Shell.TabBarIsVisible="False"
+             x:Name="RecipeFollowingPage"
+             x:DataType="viewmodels:RecipeFollowViewModel"
+             BackgroundColor="AntiqueWhite">
+    <ContentPage.BindingContext>
+        <viewmodels:RecipeFollowViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+        <CarouselView ItemsSource="{Binding RecipeSteps}"
+                      Loop="False"
+                      IndicatorView="pageIndicators">
+            <CarouselView.ItemTemplate>
+                <DataTemplate x:DataType="model:RecipeStep">
+                    <StackLayout Padding="10">
+                            <Frame BorderColor="LightGray"
+                                   HasShadow="True"
+                                   Margin="70, 0, 70, 0"
+                                   Padding="10"
+                                   CornerRadius="20">
+                            <StackLayout Orientation="Horizontal"
+                                         Spacing="0"
+                                         HorizontalOptions="Center">
+                                <Label Text="{Binding Step}"
+                                       FontSize="30"
+                                       HorizontalTextAlignment="Center"/>
+                                
+                                <Label Text=". lépés"
+                                       FontSize="30"
+                                       HorizontalTextAlignment="Center"/>
+                            </StackLayout>
+                            </Frame>
+                            <Frame BorderColor="LightGray"
+                                   HasShadow="True"
+                                   VerticalOptions="CenterAndExpand"
+                                   Padding="10"
+                                   CornerRadius="20">
+                                <Label Text="{Binding Instruction}"
+                                       FontSize="35"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalOptions="CenterAndExpand"/>
+                                </Frame>
+                    </StackLayout>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+            </CarouselView>
+        <IndicatorView x:Name="pageIndicators"
+                       IndicatorColor="LightGray"
+                       Scale="1.25"
+                       SelectedIndicatorColor="#8E6E41"
+                       HorizontalOptions="Center"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

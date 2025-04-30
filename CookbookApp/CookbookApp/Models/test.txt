@@ -1,0 +1,7 @@
+
+
+
+Régi: <provider android:name="android.support.v4.content.FileProvider"
+Új:	  <provider android:name="androidx.core.content.FileProvider"
+
+

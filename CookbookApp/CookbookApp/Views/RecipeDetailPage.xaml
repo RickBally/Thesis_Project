@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CookbookApp.Views.RecipeDetailPage"
+             xmlns:viewmodels="clr-namespace:CookbookApp.ViewModels"
+             xmlns:mvvm="clr-namespace:MvvmHelpers;assembly=MvvmHelpers"
+             xmlns:model="clr-namespace:CookbookApp.Models"
+             Title="{Binding Title}"
+             x:Name="RecipeDetailedPage"
+             x:DataType="viewmodels:RecipeDetailViewModel">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="icon_del.png"
+                     Command="{Binding DeleteCommand}"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid BackgroundColor="AntiqueWhite"
+                  RowDefinitions="250, 115, 250, *, 50"
+                  Padding="10">
+
+                <Frame BorderColor="LightGray"
+                       HasShadow="True"
+                       Padding="2">
+                    <Image Source="{Binding CurrentRecipe.ImageSource}"
+                           Aspect="AspectFill"/>
+                </Frame>
+
+                <Frame BackgroundColor="WhiteSmoke"
+                       BorderColor="LightGray"
+                       Margin="15, 0, 15, 0"
+                       Padding="30, 0, 30, 0"
+                       HasShadow="True"
+                       CornerRadius="2"
+                       Grid.Row="1">
+
+                    <StackLayout>
+                        <Label Text="{Binding CurrentRecipe.Name}"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"
+                               HorizontalTextAlignment="Center"
+                               FontSize="30"/>
+
+                        <Label Text="{Binding CurrentRecipe.Category}"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               FontSize="25"/>
+
+                        <StackLayout Orientation="Horizontal"
+                                     VerticalOptions="Center"
+                                     Spacing="0">
+                            <Label Text="#"
+                                   HorizontalTextAlignment="End"
+                                   FontSize="20"/>
+
+                            <Label Text="{Binding CurrentRecipe.ID}"
+                                   HorizontalTextAlignment="Start"
+                                   FontSize="20"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+
+                <Frame BackgroundColor="WhiteSmoke"
+                       BorderColor="LightGray"
+                       Margin="15"
+                       Padding="30, 5, 30, 5"
+                       HasShadow="True"
+                       CornerRadius="2"
+                       Grid.Row="2">
+                    <StackLayout>
+                        <Grid ColumnDefinitions="*, 50"
+                              RowDefinitions="50">
+                            <Label Text="Hozzávalók"
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Center"
+                                   FontSize="25"/>
+
+                            <ImageButton Source="icon_shopping.png"
+                                         BackgroundColor="Transparent"
+                                         Command="{Binding ShoppingCommand}"
+                                         VerticalOptions="Center"
+                                         HorizontalOptions="End"
+                                         Grid.Column="1"/>
+                        </Grid>
+                        <ListView SelectionMode="None"
+                                  SeparatorVisibility="None"
+                                  HasUnevenRows="True"
+                              
+                                  ItemsSource="{Binding Ingredients}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate x:DataType="model:RecipeIngredient">
+                                    <ViewCell>
+                                        <Grid Padding="2">
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="&#9679;" FontSize="20"/>
+                                                <Label Text="{Binding Ammount}" FontSize="20"/>
+                                                <Label Text="{Binding Ingredient.Unit}" FontSize="20"/>
+                                                <Label Text="{Binding Ingredient.Name}" FontSize="20"/>
+                                            </StackLayout>
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                </Frame>
+
+                <Button Text="{Binding PrepareButtonText}"
+                        BackgroundColor="#8E6E41"
+                        Grid.Row="4"
+                        Command="{Binding FollowRecipeCommand}"/>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:CookbookApp.ViewModels"
+             xmlns:mvvm="clr-namespace:MvvmHelpers;assembly=MvvmHelpers"
+             xmlns:model="clr-namespace:CookbookApp.Models"
+             x:Class="CookbookApp.Views.InventoryPage"
+             Title="{Binding Title}"
+             x:Name="InvPage"
+             Shell.NavBarIsVisible="False"
+             x:DataType="viewmodels:InventoryViewModel">
+   
+    <ContentPage.Content>
+        <Grid BackgroundColor="AntiqueWhite"
+              RowDefinitions="*, Auto">
+            <CollectionView BackgroundColor="Transparent"
+                            Grid.Row="0"
+                            ItemsSource="{Binding InventoryItems}"
+                            SelectedItem="{Binding SelectedInvItem, Mode=TwoWay}"
+                            SelectionChangedCommand="{Binding SelectCommand}"
+                            SelectionChangedCommandParameter="{Binding SelectedInvItem, Mode=TwoWay}"
+                            SelectionMode="Single"
+                            Margin="15, 15, 15, 15">
+                <CollectionView.EmptyView>
+                    <Grid>
+                        <Frame BorderColor="LightGray"
+                               HasShadow="True"
+                               CornerRadius="20"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"
+                               Padding="8">
+                            <Label HorizontalTextAlignment="Center" 
+                                   FontSize="Medium"
+                                   Text="Jelenleg nincs semmi a spájzodban, érintsd meg a képernyő alján lévő '+' gombot, vagy a bevásárló listán keresztül, hogy felvegyél egy hozzávalót!"/>
+                        </Frame>
+                    </Grid>
+                </CollectionView.EmptyView>
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical"
+                                     Span="4"
+                                     VerticalItemSpacing="15"
+                                     HorizontalItemSpacing="0"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:InventoryItem">
+                        <ContentView>
+                            <Grid RowDefinitions="75"
+                                  HorizontalOptions="Center"
+                                  ColumnDefinitions="75">
+                                <Frame BorderColor="#272727"
+                                       HasShadow="True"
+                                       BackgroundColor="{Binding Ingredient.Category.BGColor}"
+                                       CornerRadius="5"
+                                       Padding="5">
+                                    <Image Source="{Binding Ingredient.ImageSource}"/>
+                                </Frame>
+                                <Frame
+                                    BackgroundColor="White"
+                                    Padding="0"
+                                    BorderColor="#272727"
+                                    CornerRadius="5"
+                                    HorizontalOptions="Center"
+                                    WidthRequest="60"
+                                    Margin="3, 50, 5, 3">
+                                    <Label Text="{Binding AmmountDisplay}"
+                                           TextColor="#272727"
+                                           HorizontalTextAlignment="Center">
+                                    </Label>
+                                </Frame>
+                            </Grid>
+                        </ContentView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Grid Grid.Row="0"
+                  ColumnDefinitions="Auto, *"
+                  VerticalOptions="End">
+                <ImageButton Source="button_add.png"
+                         Command="{Binding AddCommand}"
+                         Grid.Row="1"
+                         BackgroundColor="Transparent"
+                         Margin="50, 0, 0, 25"
+                         HeightRequest="75"/>
+
+                <ImageButton Source="button_del.png"
+                             Command="{Binding ClearCommand}"
+                             Grid.Row="1"
+                             Grid.Column="1"
+                             HorizontalOptions="End"
+                             BackgroundColor="Transparent"
+                             Margin="0, 0, 50, 25"
+                             HeightRequest="75"/>
+                </Grid>
+            </Grid>
+    </ContentPage.Content>
+</ContentPage>  

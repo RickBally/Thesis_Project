@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms" 
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:CookbookApp.Views"
+       Title="CookbookApp"
+       x:Class="CookbookApp.AppShell">
+
+    <!--
+        The overall app visual hierarchy is defined here, along with navigation.
+    
+        https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/
+    -->
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="#6e5b40"/>
+                <Setter Property="Shell.ForegroundColor" Value="White" />
+                <Setter Property="Shell.TitleColor" Value="White" />
+                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="#7B5543"/>
+                <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="White"/>
+            </Style>
+            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <TabBar>
+        <ShellContent Route="RecipePage"
+                      ContentTemplate="{DataTemplate local:RecipesPage}"
+                      Title="Receptek"
+                      Icon="icon_recipes.png"/>
+
+        <ShellContent Route="FavoriteRecipesPage"
+                      ContentTemplate="{DataTemplate local:FavoriteRecipesPage}"
+                      Title="Kedvencek"
+                      Icon="icon_favorite.png"/>
+
+        <ShellContent Route="AddRecipePage"
+                      ContentTemplate="{DataTemplate local:AddRecipePage}"
+                      Title="Új Recept"
+                      Icon="icon_add.png"/>
+        
+        <ShellContent Route="InventoryPage"
+                      ContentTemplate="{DataTemplate local:InventoryPage}"
+                      Title="Spájz"
+                      Icon="icon_pantry.png"/>
+
+        <ShellContent Route="ShoppingListPage"
+                      ContentTemplate="{DataTemplate local:ShoppingListPage}"
+                      Title="Bevásárló lista"
+                      Icon="icon_shopping.png"/>
+    </TabBar>
+</Shell>

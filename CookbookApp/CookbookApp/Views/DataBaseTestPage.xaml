@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:CookbookApp.ViewModels"
+             xmlns:mvvm="clr-namespace:MvvmHelpers;assembly=MvvmHelpers"
+             xmlns:model="clr-namespace:CookbookApp.Models"
+             x:Class="CookbookApp.Views.DataBaseTestPage"
+             Title="{Binding Title}"
+             x:Name="DBTestPage"
+             x:DataType="viewmodels:DataBaseTestViewModel">
+    <ContentPage.BindingContext>
+        <viewmodels:DataBaseTestViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <ListView BackgroundColor="Transparent"
+                  ItemsSource="{Binding DBItems}"
+                  HasUnevenRows="True"
+                  CachingStrategy="RecycleElement"
+                  SeparatorVisibility="None">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="model:Recipe">
+                    <ViewCell>
+                        <Grid Padding="10">
+                            <Frame CornerRadius="20"
+                                   HasShadow="True">
+                                <StackLayout>
+                                    <Image Source="{Binding ImageSource}"/>
+                                    <Label Text="{Binding Name}"/>
+                                    <Label Text="{Binding Category}"/>
+                                </StackLayout>
+                            </Frame>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

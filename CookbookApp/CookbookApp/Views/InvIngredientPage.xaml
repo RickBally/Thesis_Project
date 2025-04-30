@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:CookbookApp.ViewModels"
+             xmlns:mvvm="clr-namespace:MvvmHelpers;assembly=MvvmHelpers"
+             xmlns:model="clr-namespace:CookbookApp.Models"
+             x:Class="CookbookApp.Views.InvIngredientPage"
+             Title="{Binding Title}"
+             x:Name="InvIngPage"
+             x:DataType="viewmodels:InvIngredientViewModel">
+    <ContentPage.BindingContext>
+        <viewmodels:InvIngredientViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid BackgroundColor="AntiqueWhite"
+          Padding="25"
+          RowDefinitions="250, 105, 105, 50, *, 50">
+
+            <Frame
+                BorderColor="#272727"
+                HasShadow="True"
+                Margin="50, 25, 50, 0"
+                BackgroundColor="{Binding InventoryItem.Ingredient.Category.BGColor}"
+                CornerRadius="5"
+                Padding="5">
+                <Image Source="{Binding InventoryItem.Ingredient.ImageSource}"/>
+            </Frame>
+
+            <Frame BackgroundColor="WhiteSmoke"
+               BorderColor="LightGray"
+               Margin="25, 15, 25, 15"
+               Grid.Row="1"
+               HasShadow="True"
+               Padding="0"
+               CornerRadius="2">
+                <Label Text="{Binding InventoryItem.IngName}"
+                   FontSize="35"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"/>
+            </Frame>
+            <Frame BackgroundColor="WhiteSmoke"
+               BorderColor="LightGray"
+               HasShadow="True"
+               Margin="25, 15, 25, 15"
+               Padding="0"
+               CornerRadius="2"
+               Grid.Row="2">
+
+                <StackLayout HorizontalOptions="Center">
+                    <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="Center">
+                        <Label Text="Kategória:"
+                               FontSize="25"/>
+                        <Label Text="{Binding InventoryItem.Ingredient.Category.Name}"
+                               FontSize="25"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="Center">
+                        <Label Text="Allergén:"
+                               FontSize="22"/>
+                        <Label Text="{Binding InventoryItem.Ingredient.Category.Allergen}"
+                               FontSize="22"/>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            
+            <StackLayout Orientation="Horizontal"
+                         Margin="15, 0, 15, 0"
+                         Spacing="0"
+                         Padding="0"
+                         Grid.Row="3">
+                <ImageButton Source="button_ammount_rem"
+                             BackgroundColor="Transparent"
+                             Margin="0"
+                             Command="{Binding RemAmmountCommand}"
+                             HorizontalOptions="End"/>
+
+                <Frame BackgroundColor="WhiteSmoke"
+                       BorderColor="LightGray"
+                       Margin="0, 7, 0, 7"
+                       CornerRadius="0"
+                       Padding="0"
+                       HorizontalOptions="FillAndExpand">
+                    <Label Text="{Binding InventoryItem.AmmountDisplay}"
+                           FontSize="25"
+                           HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center"/>
+                </Frame>
+
+                <ImageButton Source="button_ammount_add"
+                             BackgroundColor="Transparent"
+                             Margin="0"
+                             Command="{Binding AddAmmountCommand}"
+                             HorizontalOptions="Start"/>
+            </StackLayout>
+
+            <Button Text="Hozzávaló kidobása"
+                    Command="{Binding DeleteCommand}"
+                    FontSize="Medium"
+                    BackgroundColor="#8E6E41"
+                    HorizontalOptions="Center"
+                    Grid.Row="5"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:CookbookApp.ViewModels"
+             xmlns:mvvm="clr-namespace:MvvmHelpers;assembly=MvvmHelpers"
+             xmlns:model="clr-namespace:CookbookApp.Models"
+             x:Class="CookbookApp.Views.RecipesPage"
+             Title="{Binding Title}"
+             x:Name="RecipePage"
+             Shell.NavBarIsVisible="True"
+             x:DataType="viewmodels:RecipesViewModel"
+             BackgroundColor="AntiqueWhite">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="icon_filter.png"
+                     Command="{Binding FilterCommand}"/>
+        <ToolbarItem IconImageSource="icon_search.png"
+                     Command="{Binding SearchCommand}"/>
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <CollectionView SelectedItem="{Binding SelectedRecipe, Mode=TwoWay}"
+                        SelectionChangedCommand="{Binding SelectCommand}"
+                        SelectionChangedCommandParameter="{Binding SelectedRecipe, Mode=TwoWay}"
+                        SelectionMode="Single"
+                        Margin="10"
+                        ItemsSource="{Binding DisplayedRecipes}">
+            
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical"/>
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.EmptyView>
+                <Grid Padding="10">
+                    <Frame BorderColor="LightGray"
+                           HasShadow="True"
+                           CornerRadius="20"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           Padding="8">
+                        <Label HorizontalTextAlignment="Center" 
+                               FontSize="Medium"
+                               Text="Jelenleg nincs felvéve egy recpet se, érintsd meg az alsó menüsorban lévő 'Új recept' gombot, hogy felvegyél egy receptet!"/>
+                    </Frame>
+                </Grid>
+            </CollectionView.EmptyView>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Recipe">
+                    <ContentView>
+                        <Grid Margin="0, 5, 0, 5">
+                            <Frame Padding="10"
+                                   BorderColor="LightGray"
+                                   CornerRadius="20"
+                                   HasShadow="True">
+                                <Grid RowDefinitions="30, 30, 30"
+                                      ColumnDefinitions="90, Auto, *">
+                                    <Frame BorderColor="LightGray"
+                                           HasShadow="True"
+                                           Padding="2"
+                                           Grid.RowSpan="3">
+                                        <Image Source="{Binding ImageSource}"
+                                               Aspect="AspectFill"/>
+                                    </Frame>
+
+                                    <Label Text="{Binding Name}"
+                                           FontSize="Large"
+                                           Grid.Column="1"/>
+
+                                    <ImageButton Source="{Binding FavoriteIcon, Mode=TwoWay}"
+                                                 BackgroundColor="Transparent"
+                                                 HorizontalOptions="End"
+                                                 Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:RecipesViewModel}}, Path=FavoriteCommand}"
+                                                 CommandParameter="{Binding .}"
+                                                 Grid.Column="2"/>
+                                
+                                     <Label Text="{Binding Category}"
+                                            FontSize="Medium"
+                                            HorizontalTextAlignment="End"
+                                            Grid.ColumnSpan="2"
+                                            Grid.Column="1"
+                                            Grid.Row="1"/>
+
+
+                                    <StackLayout Orientation="Horizontal"
+                                                 VerticalOptions="Center"
+                                                 Spacing="0"
+                                                 Grid.Column="1"
+                                                 Grid.Row="2">
+                                        <Label Text="#"
+                                               HorizontalTextAlignment="End"
+                                               FontSize="Medium"/>
+
+                                        <Label Text="{Binding ID}"
+                                               FontSize="Medium"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal"
+                                                 Grid.ColumnSpan="2"
+                                                 Grid.Column="1"
+                                                 Grid.Row="2"
+                                                 HorizontalOptions="End">
+                                        <Image Source="icon_clock.png"
+                                               HeightRequest="25"/>
+
+                                        <Label Text="{Binding CookTime}"
+                                                FontSize="Medium"
+                                                HorizontalTextAlignment="End"
+                                                VerticalTextAlignment="Center"/>
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                        </Grid>
+                    </ContentView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ContentPage.Content>
+</ContentPage>
