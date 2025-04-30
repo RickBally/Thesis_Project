@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AF20FAED-1992-43B1-945E-727D33D31784}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TemplateGuid>{6968b3a4-1835-46a3-ac5c-1ae33b475983}</TemplateGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>CookbookApp.Droid</RootNamespace>
+    <AssemblyName>CookbookApp.Android</AssemblyName>
+    <Deterministic>True</Deterministic>
+    <AndroidApplication>True</AndroidApplication>
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+    <AndroidResgenClass>Resource</AndroidResgenClass>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
+    <TargetFrameworkVersion>v13.0</TargetFrameworkVersion>
+    <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
+    <AndroidUseAapt2>true</AndroidUseAapt2>
+    <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidLinkMode>None</AndroidLinkMode>
+    <EmbedAssembliesIntoApk>false</EmbedAssembliesIntoApk>
+    <AotAssemblies>false</AotAssemblies>
+    <EnableLLVM>false</EnableLLVM>
+    <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
+    <BundleAssemblies>false</BundleAssemblies>
+    <MandroidI18n />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidManagedSymbols>true</AndroidManagedSymbols>
+    <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+    <AotAssemblies>false</AotAssemblies>
+    <EnableLLVM>false</EnableLLVM>
+    <AndroidEnableProfiledAot>true</AndroidEnableProfiledAot>
+    <BundleAssemblies>false</BundleAssemblies>
+    <AndroidPackageFormat>apk</AndroidPackageFormat>
+    <AndroidUseAapt2>true</AndroidUseAapt2>
+    <AndroidCreatePackagePerAbi>false</AndroidCreatePackagePerAbi>
+    <AndroidLinkTool>r8</AndroidLinkTool>
+    <AndroidSupportedAbis />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Mono.Android" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Realm">
+      <Version>20.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Refractored.MvvmHelpers">
+      <Version>1.6.2</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2662" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MainActivity.cs" />
+    <Compile Include="Resources\Resource.designer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AboutResources.txt" />
+    <None Include="Assets\AboutAssets.txt" />
+    <None Include="Properties\AndroidManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\styles.xml" />
+    <AndroidResource Include="Resources\values\colors.xml" />
+    <AndroidResource Include="Resources\mipmap-anydpi-v26\icon.xml" />
+    <AndroidResource Include="Resources\mipmap-anydpi-v26\icon_round.xml" />
+    <AndroidResource Include="Resources\mipmap-hdpi\icon.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\launcher_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\icon.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\launcher_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\icon.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\launcher_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\icon.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\launcher_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CookbookApp\CookbookApp.csproj">
+      <Project>{04E25ACE-82AD-4ABE-9622-A5FCB9BE99F0}</Project>
+      <Name>CookbookApp</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\xml\file_paths.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\button_add.png" />
+    <AndroidResource Include="Resources\drawable\button_ammount_add.png" />
+    <AndroidResource Include="Resources\drawable\button_ammount_rem.png" />
+    <AndroidResource Include="Resources\drawable\button_pantry.png" />
+    <AndroidResource Include="Resources\drawable\button_selected.png" />
+    <AndroidResource Include="Resources\drawable\button_star_empty.png" />
+    <AndroidResource Include="Resources\drawable\button_star_full.png" />
+    <AndroidResource Include="Resources\drawable\button_del.png" />
+    <AndroidResource Include="Resources\drawable\icon_add.png" />
+    <AndroidResource Include="Resources\drawable\icon_clock.png" />
+    <AndroidResource Include="Resources\drawable\icon_del.png" />
+    <AndroidResource Include="Resources\drawable\icon_favorite.png" />
+    <AndroidResource Include="Resources\drawable\icon_filter.png" />
+    <AndroidResource Include="Resources\drawable\icon_pantry.png" />
+    <AndroidResource Include="Resources\drawable\icon_recipes.png" />
+    <AndroidResource Include="Resources\drawable\icon_search.png" />
+    <AndroidResource Include="Resources\drawable\icon_shopping.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\button_unselected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ing_beef.png" />
+    <AndroidResource Include="Resources\drawable\ing_broccoli.png" />
+    <AndroidResource Include="Resources\drawable\ing_cabbage.png" />
+    <AndroidResource Include="Resources\drawable\ing_carrot.png" />
+    <AndroidResource Include="Resources\drawable\ing_cheese.png" />
+    <AndroidResource Include="Resources\drawable\ing_cherry.png" />
+    <AndroidResource Include="Resources\drawable\ing_cucumber.png" />
+    <AndroidResource Include="Resources\drawable\ing_egg.png" />
+    <AndroidResource Include="Resources\drawable\ing_grapes.png" />
+    <AndroidResource Include="Resources\drawable\ing_lime.png" />
+    <AndroidResource Include="Resources\drawable\ing_mushroom.png" />
+    <AndroidResource Include="Resources\drawable\ing_potato.png" />
+    <AndroidResource Include="Resources\drawable\ing_pumpkin.png" />
+    <AndroidResource Include="Resources\drawable\ing_tomato.png" />
+    <AndroidResource Include="Resources\drawable\ing_watermelon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ing_apple.png" />
+    <AndroidResource Include="Resources\drawable\ing_banana.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ing_lettuce.png" />
+    <AndroidResource Include="Resources\drawable\ing_onion.png" />
+    <AndroidResource Include="Resources\drawable\ing_orange.png" />
+    <AndroidResource Include="Resources\drawable\ing_pear.png" />
+    <AndroidResource Include="Resources\drawable\ing_peas.png" />
+    <AndroidResource Include="Resources\drawable\ing_pineapple.png" />
+    <AndroidResource Include="Resources\drawable\ing_strawberry.png" />
+    <AndroidResource Include="Resources\drawable\ing_wine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ing_bacon.png" />
+    <AndroidResource Include="Resources\drawable\ing_bread.png" />
+    <AndroidResource Include="Resources\drawable\ing_butter.png" />
+    <AndroidResource Include="Resources\drawable\ing_coffee.png" />
+    <AndroidResource Include="Resources\drawable\ing_ketchup.png" />
+    <AndroidResource Include="Resources\drawable\ing_mayo.png" />
+    <AndroidResource Include="Resources\drawable\ing_milk.png" />
+    <AndroidResource Include="Resources\drawable\ing_oil.png" />
+    <AndroidResource Include="Resources\drawable\ing_chicken.png" />
+    <AndroidResource Include="Resources\drawable\ing_sugar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ing_basil.png" />
+    <AndroidResource Include="Resources\drawable\ing_pepper.png" />
+    <AndroidResource Include="Resources\drawable\ing_cinnamon.png" />
+    <AndroidResource Include="Resources\drawable\ing_ginger.png" />
+    <AndroidResource Include="Resources\drawable\ing_nutmeg.png" />
+    <AndroidResource Include="Resources\drawable\ing_oregano.png" />
+    <AndroidResource Include="Resources\drawable\ing_parsley.png" />
+    <AndroidResource Include="Resources\drawable\ing_stock.png" />
+    <AndroidResource Include="Resources\drawable\ing_vanila.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ing_baguette.png" />
+    <AndroidResource Include="Resources\drawable\ing_beer.png" />
+    <AndroidResource Include="Resources\drawable\ing_flour.png" />
+    <AndroidResource Include="Resources\drawable\ing_garlic.png" />
+    <AndroidResource Include="Resources\drawable\ing_lemon.png" />
+    <AndroidResource Include="Resources\drawable\ing_paprika.png" />
+    <AndroidResource Include="Resources\drawable\ing_pasta.png" />
+    <AndroidResource Include="Resources\drawable\ing_rolls.png" />
+    <AndroidResource Include="Resources\drawable\ing_breadcrumbs.png" />
+    <AndroidResource Include="Resources\drawable\ing_yoghurt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ing_baking_powder.png" />
+    <AndroidResource Include="Resources\drawable\ing_chocolate.png" />
+    <AndroidResource Include="Resources\drawable\ing_pork.png" />
+    <AndroidResource Include="Resources\drawable\ing_cocoa.png" />
+    <AndroidResource Include="Resources\drawable\ing_maple.png" />
+    <AndroidResource Include="Resources\drawable\ing_mustard.png" />
+    <AndroidResource Include="Resources\drawable\ing_salami.png" />
+    <AndroidResource Include="Resources\drawable\ing_sausage.png" />
+    <AndroidResource Include="Resources\drawable\ing_whipped_cream.png" />
+    <AndroidResource Include="Resources\drawable\ing_yeast.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ing_cauliflower.png" />
+    <AndroidResource Include="Resources\drawable\ing_celery.png" />
+    <AndroidResource Include="Resources\drawable\ing_corn.png" />
+    <AndroidResource Include="Resources\drawable\ing_ham.png" />
+    <AndroidResource Include="Resources\drawable\ing_bell_pepper.png" />
+    <AndroidResource Include="Resources\drawable\ing_beans.png" />
+    <AndroidResource Include="Resources\drawable\ing_salt.png" />
+    <AndroidResource Include="Resources\drawable\ing_spinach.png" />
+    <AndroidResource Include="Resources\drawable\ing_vinegar.png" />
+    <AndroidResource Include="Resources\drawable\ing_zucchini.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ing_cream.png" />
+    <AndroidResource Include="Resources\drawable\ing_cottage_cheese.png" />
+    <AndroidResource Include="Resources\drawable\ing_honey.png" />
+    <AndroidResource Include="Resources\drawable\ing_mango.png" />
+    <AndroidResource Include="Resources\drawable\ing_rice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\rec_cake.png" />
+    <AndroidResource Include="Resources\drawable\rec_carbonara.png" />
+    <AndroidResource Include="Resources\drawable\rec_burger.png" />
+    <AndroidResource Include="Resources\drawable\rec_lasagne.png" />
+    <AndroidResource Include="Resources\drawable\rec_pizza.png" />
+    <AndroidResource Include="Resources\drawable\rec_potatoes.png" />
+    <AndroidResource Include="Resources\drawable\rec_pudding.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ing_bay.png" />
+    <AndroidResource Include="Resources\drawable\ing_chili.png" />
+    <AndroidResource Include="Resources\drawable\ing_coriander.png" />
+    <AndroidResource Include="Resources\drawable\ing_cumin.png" />
+    <AndroidResource Include="Resources\drawable\ing_turmeric.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\rec_tsoup.png" />
+    <AndroidResource Include="Resources\drawable\rec_waffles.png" />
+    <AndroidResource Include="Resources\drawable\rec_curry.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\rec_frice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\rec_gcheese.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\rec_fchicken.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\rec_csoup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\rec_cabbage.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+</Project>
