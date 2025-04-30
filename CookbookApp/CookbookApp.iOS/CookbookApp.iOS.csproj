@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{36031A5A-EC48-4901-BCD1-2A15BE6BDFAA}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TemplateGuid>{89a4fe7c-635d-49c9-8d8c-5cd363c0d68d}</TemplateGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>CookbookApp.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>CookbookApp.iOS</AssemblyName>
+    <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+    <ProvisioningType>automatic</ProvisioningType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchLink>None</MtouchLink>
+    <MtouchDebug>true</MtouchDebug>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>None</MtouchLink>
+    <MtouchInterpreter>-all</MtouchInterpreter>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchUseLlvm>true</MtouchUseLlvm>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
+    <AppExtensionDebugBundleId />
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <None Include="Entitlements.plist" />
+    <None Include="Info.plist" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon1024.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon180.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon167.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon152.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon120.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon87.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon80.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon76.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon60.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon58.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon40.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon29.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <BundleResource Include="Resources\icon_about.png" />
+    <BundleResource Include="Resources\icon_about%402x.png" />
+    <BundleResource Include="Resources\icon_about%403x.png" />
+    <BundleResource Include="Resources\icon_feed.png" />
+    <BundleResource Include="Resources\icon_feed%402x.png" />
+    <BundleResource Include="Resources\icon_feed%403x.png" />
+    <BundleResource Include="Resources\xamarin_logo.png" />
+    <BundleResource Include="Resources\xamarin_logo%402x.png" />
+    <BundleResource Include="Resources\xamarin_logo%403x.png" />
+    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Realm">
+      <Version>20.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Refractored.MvvmHelpers">
+      <Version>1.6.2</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\CookbookApp\CookbookApp.csproj">
+      <Project>{04E25ACE-82AD-4ABE-9622-A5FCB9BE99F0}</Project>
+      <Name>CookbookApp</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ing_apple.png" />
+    <BundleResource Include="Resources\ing_bacon.png" />
+    <BundleResource Include="Resources\ing_baguette.png" />
+    <BundleResource Include="Resources\ing_baking_powder.png" />
+    <BundleResource Include="Resources\ing_banana.png" />
+    <BundleResource Include="Resources\ing_basil.png" />
+    <BundleResource Include="Resources\ing_bay.png" />
+    <BundleResource Include="Resources\ing_beans.png" />
+    <BundleResource Include="Resources\ing_beef.png" />
+    <BundleResource Include="Resources\ing_beer.png" />
+    <BundleResource Include="Resources\ing_bell_pepper.png" />
+    <BundleResource Include="Resources\ing_bread.png" />
+    <BundleResource Include="Resources\ing_breadcrumbs.png" />
+    <BundleResource Include="Resources\ing_broccoli.png" />
+    <BundleResource Include="Resources\ing_butter.png" />
+    <BundleResource Include="Resources\ing_cabbage.png" />
+    <BundleResource Include="Resources\ing_carrot.png" />
+    <BundleResource Include="Resources\ing_cauliflower.png" />
+    <BundleResource Include="Resources\ing_celery.png" />
+    <BundleResource Include="Resources\ing_cheese.png" />
+    <BundleResource Include="Resources\ing_cherry.png" />
+    <BundleResource Include="Resources\ing_chicken.png" />
+    <BundleResource Include="Resources\ing_chili.png" />
+    <BundleResource Include="Resources\ing_chocolate.png" />
+    <BundleResource Include="Resources\ing_cinnamon.png" />
+    <BundleResource Include="Resources\ing_cocoa.png" />
+    <BundleResource Include="Resources\ing_coffee.png" />
+    <BundleResource Include="Resources\ing_coriander.png" />
+    <BundleResource Include="Resources\ing_corn.png" />
+    <BundleResource Include="Resources\ing_cottage_cheese.png" />
+    <BundleResource Include="Resources\ing_cream.png" />
+    <BundleResource Include="Resources\ing_cucumber.png" />
+    <BundleResource Include="Resources\ing_cumin.png" />
+    <BundleResource Include="Resources\ing_egg.png" />
+    <BundleResource Include="Resources\ing_flour.png" />
+    <BundleResource Include="Resources\ing_garlic.png" />
+    <BundleResource Include="Resources\ing_ginger.png" />
+    <BundleResource Include="Resources\ing_grapes.png" />
+    <BundleResource Include="Resources\ing_ham.png" />
+    <BundleResource Include="Resources\ing_honey.png" />
+    <BundleResource Include="Resources\ing_ketchup.png" />
+    <BundleResource Include="Resources\ing_lemon.png" />
+    <BundleResource Include="Resources\ing_lettuce.png" />
+    <BundleResource Include="Resources\ing_lime.png" />
+    <BundleResource Include="Resources\ing_mango.png" />
+    <BundleResource Include="Resources\ing_maple.png" />
+    <BundleResource Include="Resources\ing_mayo.png" />
+    <BundleResource Include="Resources\ing_milk.png" />
+    <BundleResource Include="Resources\ing_mushroom.png" />
+    <BundleResource Include="Resources\ing_mustard.png" />
+    <BundleResource Include="Resources\ing_nutmeg.png" />
+    <BundleResource Include="Resources\ing_oil.png" />
+    <BundleResource Include="Resources\ing_onion.png" />
+    <BundleResource Include="Resources\ing_orange.png" />
+    <BundleResource Include="Resources\ing_oregano.png" />
+    <BundleResource Include="Resources\ing_paprika.png" />
+    <BundleResource Include="Resources\ing_parsley.png" />
+    <BundleResource Include="Resources\ing_pasta.png" />
+    <BundleResource Include="Resources\ing_pear.png" />
+    <BundleResource Include="Resources\ing_peas.png" />
+    <BundleResource Include="Resources\ing_pepper.png" />
+    <BundleResource Include="Resources\ing_pineapple.png" />
+    <BundleResource Include="Resources\ing_pork.png" />
+    <BundleResource Include="Resources\ing_potato.png" />
+    <BundleResource Include="Resources\ing_pumpkin.png" />
+    <BundleResource Include="Resources\ing_rice.png" />
+    <BundleResource Include="Resources\ing_rolls.png" />
+    <BundleResource Include="Resources\ing_salami.png" />
+    <BundleResource Include="Resources\ing_salt.png" />
+    <BundleResource Include="Resources\ing_sausage.png" />
+    <BundleResource Include="Resources\ing_sourcream.png" />
+    <BundleResource Include="Resources\ing_spinach.png" />
+    <BundleResource Include="Resources\ing_stock.png" />
+    <BundleResource Include="Resources\ing_strawberry.png" />
+    <BundleResource Include="Resources\ing_sugar.png" />
+    <BundleResource Include="Resources\ing_tomato.png" />
+    <BundleResource Include="Resources\ing_turmeric.png" />
+    <BundleResource Include="Resources\ing_vanila.png" />
+    <BundleResource Include="Resources\ing_vinegar.png" />
+    <BundleResource Include="Resources\ing_watermelon.png" />
+    <BundleResource Include="Resources\ing_whipped_cream.png" />
+    <BundleResource Include="Resources\ing_wine.png" />
+    <BundleResource Include="Resources\ing_yeast.png" />
+    <BundleResource Include="Resources\ing_zucchini.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\button_add.png" />
+    <BundleResource Include="Resources\button_ammount_add.png" />
+    <BundleResource Include="Resources\button_ammount_rem.png" />
+    <BundleResource Include="Resources\button_del.png" />
+    <BundleResource Include="Resources\button_pantry.png" />
+    <BundleResource Include="Resources\button_selected.png" />
+    <BundleResource Include="Resources\button_star_empty.png" />
+    <BundleResource Include="Resources\button_star_full.png" />
+    <BundleResource Include="Resources\button_unselected.png" />
+    <BundleResource Include="Resources\icon_add.png" />
+    <BundleResource Include="Resources\icon_clock.png" />
+    <BundleResource Include="Resources\icon_del.png" />
+    <BundleResource Include="Resources\icon_favorite.png" />
+    <BundleResource Include="Resources\icon_filter.png" />
+    <BundleResource Include="Resources\icon_pantry.png" />
+    <BundleResource Include="Resources\icon_recipes.png" />
+    <BundleResource Include="Resources\icon_search.png" />
+    <BundleResource Include="Resources\icon_shopping.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\rec_burger.png" />
+    <BundleResource Include="Resources\rec_cake.png" />
+    <BundleResource Include="Resources\rec_carbonara.png" />
+    <BundleResource Include="Resources\rec_csoup.png" />
+    <BundleResource Include="Resources\rec_curry.png" />
+    <BundleResource Include="Resources\rec_fchicken.png" />
+    <BundleResource Include="Resources\rec_frice.png" />
+    <BundleResource Include="Resources\rec_gcheese.png" />
+    <BundleResource Include="Resources\rec_lasagne.png" />
+    <BundleResource Include="Resources\rec_pizza.png" />
+    <BundleResource Include="Resources\rec_potatoes.png" />
+    <BundleResource Include="Resources\rec_pudding.png" />
+    <BundleResource Include="Resources\rec_tsoup.png" />
+    <BundleResource Include="Resources\rec_waffles.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\rec_cabbage.png" />
+  </ItemGroup>
+</Project>
